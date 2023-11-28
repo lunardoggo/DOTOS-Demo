@@ -4,7 +4,8 @@ using Unity.Entities;
 using Unity.NetCode;
 
 [UpdateInGroup(typeof(GhostSimulationSystemGroup))]
-public partial struct UnitMovementSystem : ISystem
+[WorldSystemFilter(WorldSystemFilterFlags.ServerSimulation)]
+public partial struct ServerUnitMovementSystem : ISystem
 {
     public void OnCreate(ref SystemState state)
     {

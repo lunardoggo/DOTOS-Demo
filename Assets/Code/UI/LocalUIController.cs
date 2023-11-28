@@ -99,7 +99,7 @@ public class LocalUIController : MonoBehaviour
         //Start the server; do this in two steps in order to be able to dispose the query afterwards and not leave any
         //unmanaged stuff in memory
         using EntityQuery serverDriverQuery = server.EntityManager.CreateEntityQuery(ComponentType.ReadWrite<NetworkStreamDriver>());
-        serverDriverQuery.GetSingletonRW<NetworkStreamDriver>().ValueRW.Listen(this.GetServerEndpoint());
+        serverDriverQuery.GetSingletonRW<NetworkStreamDriver>().ValueRW.Listen(NetworkEndpoint.AnyIpv4.WithPort(this.lastPort));
 
         
         //Start the client connection

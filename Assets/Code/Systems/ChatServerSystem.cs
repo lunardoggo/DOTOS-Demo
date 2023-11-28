@@ -16,7 +16,7 @@ public partial class ChatServerSystem : SystemBase
         this.commandBufferSystem = World.GetOrCreateSystemManaged<BeginSimulationEntityCommandBufferSystem>();
         this.users = new NativeList<int>(Allocator.Persistent);
     }
-
+    
     protected override void OnUpdate()
     {
         ComponentLookup<NetworkId> connections = this.GetComponentLookup<NetworkId>(true); //true: readonly

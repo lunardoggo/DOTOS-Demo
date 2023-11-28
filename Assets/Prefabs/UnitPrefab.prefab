@@ -63,7 +63,7 @@ MonoBehaviour:
   DefaultGhostMode: 0
   SupportedGhostModes: 3
   OptimizationMode: 0
-  Importance: 1
+  Importance: 100
   prefabId: 8c3d28e075ed8044b98ffd408fd5d553
   HasOwner: 0
   SupportAutoCommandTarget: 1
