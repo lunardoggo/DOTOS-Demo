@@ -1,6 +1,6 @@
+using UnityEngine.SceneManagement;
 using UnityEngine.Scripting;
 using Unity.NetCode;
-using UnityEngine.SceneManagement;
 
 [Preserve] //Prevents Unity from not including this class in the shipped product
 public class NetworkingBootstrap : ClientServerBootstrap

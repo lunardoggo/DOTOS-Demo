@@ -25,8 +25,8 @@ public partial struct ServerUnitMovementSystem : ISystem
             {
                 //TODO: use maths random
                 float3 target = new float3(UnityEngine.Random.Range(-50.0f, 50.0f), 0, UnityEngine.Random.Range(-50.0f, 50.0f));
-                float speed = UnityEngine.Random.Range(1.0f, 10.0f);
-                unit.SetTarget(target);
+                // float speed = UnityEngine.Random.Range(1.0f, 10.0f);
+                unit.SetNextTarget(target);
                 // unit.SetSpeed(speed);
             }
             else

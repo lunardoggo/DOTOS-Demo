@@ -1,9 +1,8 @@
-using Unity.Mathematics;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.NetCode;
 
-[UpdateInGroup(typeof(PredictedSimulationSystemGroup))]
+[UpdateInGroup(typeof(GhostSimulationSystemGroup))]
 [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]
 public partial struct ClientUnitMovementSystem : ISystem
 {
@@ -21,7 +20,6 @@ public partial struct ClientUnitMovementSystem : ISystem
         {
             if (state.EntityManager.GetComponentData<PredictedGhost>(entity).ShouldPredict(serverTick))
             {
-
                 UnitAspect unit = state.EntityManager.GetAspect<UnitAspect>(entity);
                 if (!unit.IsTargetReached)
                 {

@@ -22,16 +22,10 @@ public readonly partial struct UnitAspect : IAspect
         }
     }
 
-    public void SetSpeed(float speed)
-    {
-        this.unit.ValueRW.Speed = speed;
-    }
-
-    public void SetTarget(float3 target)
+    public void SetNextTarget(float3 target)
     {
         this.unit.ValueRW.Target = target;
     }
-
     public bool IsTargetReached
     {
         get => math.all(this.unit.ValueRO.Target == this.transform.ValueRO.Position);

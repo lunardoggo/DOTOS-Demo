@@ -32,7 +32,7 @@ public partial struct UnitSpawningSystem : ISystem
                 float3 target = new float3(UnityEngine.Random.Range(-50.0f, 50.0f), 0, UnityEngine.Random.Range(-50.0f, 50.0f));
                 Entity unit = buffer.Instantiate(spawner.Prefab);
                 buffer.SetComponent(unit, new Unit() {
-                    Speed = UnityEngine.Random.Range(1.0f, 10.0f),
+                    Speed = UnityEngine.Random.Range(1.0f, 5.0f),
                     PlayerId = cmd.PlayerId,
                     IsSelected = false,
                     Target = target

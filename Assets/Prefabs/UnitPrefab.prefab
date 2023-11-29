@@ -62,14 +62,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultGhostMode: 0
   SupportedGhostModes: 3
-  OptimizationMode: 0
+  OptimizationMode: 1
   Importance: 100
   prefabId: 8c3d28e075ed8044b98ffd408fd5d553
   HasOwner: 0
   SupportAutoCommandTarget: 1
   TrackInterpolationDelay: 0
   GhostGroup: 0
-  UsePreSerialization: 0
+  UsePreSerialization: 1
 --- !u!114 &5524781948452201270
 MonoBehaviour:
   m_ObjectHideFlags: 0

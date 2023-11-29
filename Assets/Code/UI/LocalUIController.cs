@@ -67,11 +67,11 @@ public class LocalUIController : MonoBehaviour
 
     public void OnQuitClicked()
     {
-        #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 
     public void OnConnectClicked()
@@ -101,7 +101,12 @@ public class LocalUIController : MonoBehaviour
         using EntityQuery serverDriverQuery = server.EntityManager.CreateEntityQuery(ComponentType.ReadWrite<NetworkStreamDriver>());
         serverDriverQuery.GetSingletonRW<NetworkStreamDriver>().ValueRW.Listen(NetworkEndpoint.AnyIpv4.WithPort(this.lastPort));
 
-        
+        // Control the tick rate of the server; in this case it should run at 140Hz
+        ClientServerTickRate tickRate = new ClientServerTickRate();
+        tickRate.SimulationTickRate = 140;
+        tickRate.ResolveDefaults(); //automatic calculation for other properties
+        server.EntityManager.CreateSingleton(tickRate);
+
         //Start the client connection
         //As the server is running locally, the client should connect to the local loopback regardless of the ip address provided to the server to listen to
         this.ConnectClient(client, NetworkEndpoint.LoopbackIpv4.WithPort(this.lastPort));
